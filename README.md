@@ -13,14 +13,20 @@ npm install @handy-common-utils/fs-utils
 Then you can use it in the code:
 
 ```javascript
-import { FsUtils } from '../fs-utils';
+import { FsUtils } from 'fs-utils';
 
 const [,, filePath, matchPattern, beforeString, afterString] = process.argv;
-FsUtils.addSurrounding(filePath, new RegExp(matchPattern), beforeString, afterString);
+await FsUtils.addSurroundingInFile(filePath, new RegExp(matchPattern), beforeString, afterString);
 ```
 
 You can either import and use the [class](#classes) as shown above,
-or you can import individual [functions](#variables) directly.
+or you can import individual [functions](#variables) directly like below:
+
+```javascript
+import { addSurroundingInFile } from 'fs-utils';
+
+await addSurroundingInFile(README_MD_FILE, /\*\*`example`\*\*(.*?)###/gms, '**`example`**\n```javascript\n', '```\n###');
+```
 
 # API
 
