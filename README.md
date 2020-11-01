@@ -24,5 +24,6 @@ or you can import individual [functions](#variables) directly.
 
 # API
 
-<!-- API start-->
-<!-- API end-->
+<!-- API start -->
+
+<!-- API end -->
