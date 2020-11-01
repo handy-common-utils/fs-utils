@@ -25,7 +25,10 @@ or you can import individual [functions](#variables) directly like below:
 ```javascript
 import { addSurroundingInFile } from 'fs-utils';
 
-await addSurroundingInFile(README_MD_FILE, /\*\*`example`\*\*(.*?)###/gms, '**`example`**\n`' + '``javascript\n', '`' + '``\n###');
+await addSurroundingInFile(README_MD_FILE, /\*\*`example`\*\*(.*?)###/gms, '**`example`**
+```javascript
+\n`' + '``javascript\n', '`' + '``\n```
+###');
 ```
 
 # API
