@@ -44,20 +44,20 @@ describe('fs-utils', () => {
     const originalFile = await initializeOriginalFile();
     const contentFile = await initializeContentFile();
 
-    await FsUtils.replaceWithFileContent(originalFile.name, /non-existing/g, contentFile.name);
+    await FsUtils.replaceInFileWithFileContent(originalFile.name, /non-existing/g, contentFile.name);
     expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent);
   });
   it('should replaceWithFileContent(...) does the job when there are matches', async () => {
     const originalFile = await initializeOriginalFile();
     const contentFile = await initializeContentFile();
 
-    await FsUtils.replaceWithFileContent(originalFile.name, /<replace me>/g, contentFile.name);
+    await FsUtils.replaceInFileWithFileContent(originalFile.name, /<replace me>/g, contentFile.name);
     expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace('<replace me>', contentFileContent).replace('<replace me>', contentFileContent));
   });
   it('should addSurrounding(...) does the job when there are matches', async () => {
     const originalFile = await initializeOriginalFile();
 
-    await FsUtils.addSurrounding(originalFile.name, /<start>([\s\S]*?)<end>/gm, '<start><body>', '</body><end>');
+    await FsUtils.addSurroundingInFile(originalFile.name, /<start>([\s\S]*?)<end>/gm, '<start><body>', '</body><end>');
     expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace(/<start>/g, '<start><body>').replace(/<end>/g, '</body><end>'));
   });
 
