@@ -14,8 +14,8 @@
   "main": "dist/fs-utils.js",
   "types": "dist/fs-utils.d.ts",
   "bin": {
-    "fs-utils-add-surrounding": "dist/bin/add-surrounding.js",
-    "fs-utils-replace-with-file-content": "dist/bin/replace-with-file-content.js"
+    "add-surrounding-in-file": "dist/bin/add-surrounding-in-file.js",
+    "replace-in-file-with-file-content": "dist/bin/replace-in-file-with-file-content.js"
   },
   "dependencies": {
     "fs-extra": "^9.0.1"
