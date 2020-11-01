@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "File system operations related utilities based on fs-extra",
   "scripts": {
-    "test": "mocha -r ts-node/register test/**/*spec.ts",
+    "test": "nyc mocha -r ts-node/register test/**/*spec.ts",
     "prepare": "shx rm -rf dist && tsc && shx chmod +x dist/bin/*.js",
     "preversion": "npx generate-api-docs-and-update-readme"
   },
