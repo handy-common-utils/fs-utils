@@ -1,0 +1,44 @@
+{
+  "name": "@handy-common-utils/fs-utils",
+  "version": "1.0.0",
+  "description": "File system operations related utilities based on fs-extra",
+  "main": "dist/fs-utils.js",
+  "types": "dist/fs-utils.d.ts",
+  "bin": {
+    "fs-utils-add-surrounding": "dist/bin/add-surrounding.js",
+    "fs-utils-replace-with-file-content": "dist/bin/replace-with-file-content.js"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**/*spec.ts",
+    "prepare": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/handy-common-utils/fs-utils.git"
+  },
+  "keywords": [
+    "fs",
+    "file",
+    "utils"
+  ],
+  "author": "James Hu",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/handy-common-utils/fs-utils/issues"
+  },
+  "homepage": "https://github.com/handy-common-utils/fs-utils#readme",
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/fs-extra": "^9.0.2",
+    "@types/mocha": "^8.0.3",
+    "@types/tmp": "^0.2.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.0",
+    "tmp": "^0.2.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  }
+}
