@@ -1,6 +1,6 @@
 {
   "name": "@handy-common-utils/fs-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "File system operations related utilities based on fs-extra",
   "scripts": {
     "test": "nyc mocha -r ts-node/register test/**/*spec.ts",
