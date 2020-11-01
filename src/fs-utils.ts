@@ -83,10 +83,6 @@ export abstract class FsUtils {
   }
 }
 
-/**
- * @namespace
- * @borrows FsUtils.escapeRegExpReplacement as escapeRegExpReplacement
- */
 export const escapeRegExpReplacement = FsUtils.escapeRegExpReplacement;
 export const changeFileContent = FsUtils.changeFileContent;
 export const replaceInFile = FsUtils.replaceInFile;
