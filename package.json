@@ -5,7 +5,6 @@
   "scripts": {
     "test": "nyc mocha -r ts-node/register test/**/*spec.ts",
     "prepare": "shx rm -rf dist && tsc && shx chmod +x dist/bin/*.js",
-    "preversion": "npx generate-api-docs-and-update-readme"
   },
   "files": [
     "package.json",
