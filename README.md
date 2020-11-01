@@ -25,7 +25,10 @@ or you can import individual [functions](#variables) directly like below:
 ```javascript
 import { addSurroundingInFile } from 'fs-utils';
 
-await addSurroundingInFile(README_MD_FILE, /\*\*`example`\*\*(.*?)###/gms, '**`example`**\n```javascript\n', '```\n###');
+await addSurroundingInFile(README_MD_FILE, /\*\*`example`\*\*(.*?)###/gms, '**`example`**
+```javascript
+\n```javascript\n', '```\n```
+###');
 ```
 
 # API
@@ -156,7 +159,7 @@ Add surrounding content to the matching sections in the text file.
 Name | Type | Default value | Description |
 ------ | ------ | ------ | ------ |
 `filePath` | string | - | path to the file |
-`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be processed.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `[\s\S]*`, `.*?` |
+`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be processed.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 `addBefore` | string | - | the string to be added before the capturing group, no need to escape anything |
 `addAfter` | string | - | the string to be added before the capturing group, no need to escape anything |
 `fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file  |
@@ -216,7 +219,7 @@ Replace the matching sections in the text file.
 Name | Type | Default value | Description |
 ------ | ------ | ------ | ------ |
 `filePath` | string | - | path to the file |
-`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `[\s\S]*`, `.*?` |
+`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 `replacementOrBuilder` | string \| (matchPattern: RegExp, filePath: string) => string \| PromiseLike\<string> | - | The replacement string or a function for building the replacement string.                              Please note that you can use special replacement patterns but also you need to take care of the escaping.                              For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
 `fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file  |
 
@@ -235,7 +238,7 @@ Replace the matching sections in the text file with content from another file.
 Name | Type | Default value | Description |
 ------ | ------ | ------ | ------ |
 `filePath` | string | - | path of the file |
-`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `[\s\S]*`, `.*?` |
+`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 `contentFilePath` | string | - | path of the file for getting the replacement content |
 `fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the files  |
 
