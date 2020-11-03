@@ -1,12 +1,4 @@
 extends:
-  - ./node_modules/@handy-common-utils/dev-utils/.eslintrc.json
-rules:
-  max-params: 
-    - warn
-    - 7
-  indent:
-    - error
-    - 2
-    -
-      MemberExpression: off
+  - ./node_modules/@handy-common-utils/dev-utils/.eslintrc.yml
+
 
