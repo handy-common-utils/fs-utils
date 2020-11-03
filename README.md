@@ -159,9 +159,11 @@ Name | Type | Default value | Description |
 `matchPattern` | RegExp | - | RegExp for deciding which section of the file would be processed.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 `addBefore` | string | - | the string to be added before the capturing group, no need to escape anything |
 `addAfter` | string | - | the string to be added before the capturing group, no need to escape anything |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file  |
+`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file |
 
 **Returns:** Promise\<void>
+
+Promise of void
 
 ___
 
@@ -179,9 +181,11 @@ Name | Type | Default value | Description |
 ------ | ------ | ------ | ------ |
 `filePath` | string | - | path to the file |
 `transformContent` | (originalContent: string, filePath: string) => string \| PromiseLike\<string> | - | function for getting the new file content |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file  |
+`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file |
 
 **Returns:** Promise\<void>
+
+Promise of void
 
 ___
 
@@ -218,9 +222,11 @@ Name | Type | Default value | Description |
 `filePath` | string | - | path to the file |
 `matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 `replacementOrBuilder` | string \| (matchPattern: RegExp, filePath: string) => string \| PromiseLike\<string> | - | The replacement string or a function for building the replacement string.                              Please note that you can use special replacement patterns but also you need to take care of the escaping.                              For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file  |
+`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file |
 
 **Returns:** Promise\<void>
+
+Promise of void
 
 ___
 
@@ -237,7 +243,9 @@ Name | Type | Default value | Description |
 `filePath` | string | - | path of the file |
 `matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 `contentFilePath` | string | - | path of the file for getting the replacement content |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the files  |
+`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the files |
 
 **Returns:** Promise\<void>
+
+Promise of void
 <!-- API end -->
