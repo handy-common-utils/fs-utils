@@ -13,7 +13,7 @@ npm install @handy-common-utils/fs-utils
 Then you can use it in the code:
 
 ```javascript
-import { FsUtils } from 'fs-utils';
+import { FsUtils } from '@handy-common-utils/fs-utils';
 
 const [,, filePath, matchPattern, beforeString, afterString] = process.argv;
 await FsUtils.addSurroundingInFile(filePath, new RegExp(matchPattern), beforeString, afterString);
