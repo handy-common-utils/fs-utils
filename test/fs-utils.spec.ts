@@ -60,5 +60,4 @@ describe('fs-utils', () => {
     await FsUtils.addSurroundingInFile(originalFile.name, /<start>([\s\S]*?)<end>/gm, '<start><body>', '</body><end>');
     expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace(/<start>/g, '<start><body>').replace(/<end>/g, '</body><end>'));
   });
-
 });

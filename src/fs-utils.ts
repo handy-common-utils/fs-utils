@@ -17,6 +17,7 @@ export abstract class FsUtils {
    * @param filePath path to the file
    * @param transformContent function for getting the new file content
    * @param fileEncoding encoding of the file
+   * @returns Promise of void
    */
   static async changeFileContent(filePath: string, transformContent: (originalContent: string, filePath: string) => string | PromiseLike<string>, fileEncoding: Parameters<Buffer['toString']>['0'] = 'utf-8'): Promise<void> {
     const originalContent = (await fs.readFile(filePath)).toString(fileEncoding);
@@ -34,6 +35,7 @@ export abstract class FsUtils {
    *                              Please note that you can use special replacement patterns but also you need to take care of the escaping.
    *                              For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
    * @param fileEncoding encoding of the file
+   * @returns Promise of void
    */
   static async replaceInFile(filePath: string, matchPattern: RegExp, replacementOrBuilder: string | ((matchPattern: RegExp, filePath: string) => string | PromiseLike<string>), fileEncoding: Parameters<Buffer['toString']>['0'] = 'utf-8'): Promise<void> {
     await FsUtils.changeFileContent(
@@ -53,6 +55,7 @@ export abstract class FsUtils {
    * @param addBefore the string to be added before the capturing group, no need to escape anything
    * @param addAfter the string to be added before the capturing group, no need to escape anything
    * @param fileEncoding encoding of the file
+   * @returns Promise of void
    */
   static async addSurroundingInFile(filePath: string, matchPattern: RegExp, addBefore: string, addAfter: string, fileEncoding: Parameters<Buffer['toString']>['0'] = 'utf-8'): Promise<void> {
     await FsUtils.changeFileContent(
@@ -70,6 +73,7 @@ export abstract class FsUtils {
    *                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?`
    * @param contentFilePath path of the file for getting the replacement content
    * @param fileEncoding encoding of the files
+   * @returns Promise of void
    */
   static async replaceInFileWithFileContent(filePath: string, matchPattern: RegExp, contentFilePath: string, fileEncoding: Parameters<Buffer['toString']>['0'] = 'utf-8'): Promise<void> {
     await FsUtils.replaceInFile(
