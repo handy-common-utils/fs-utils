@@ -19,13 +19,13 @@
     "replace-in-file-with-file-content": "dist/bin/replace-in-file-with-file-content.js"
   },
   "dependencies": {
-    "fs-extra": "^9.0.1"
+    "fs-extra": "^9.1.0"
   },
   "devDependencies": {
-    "@handy-common-utils/dev-dependencies": "^1.0.11",
-    "@types/fs-extra": "^9.0.2",
+    "@handy-common-utils/dev-dependencies": "^1.0.13",
+    "@types/fs-extra": "^9.0.11",
     "@types/tmp": "^0.2.0",
-    "es-check": "^5.1.2",
+    "es-check": "^5.2.3",
     "tmp": "^0.2.1"
   },
   "publishConfig": {
