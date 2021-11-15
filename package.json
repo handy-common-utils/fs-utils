@@ -16,13 +16,14 @@
   "types": "dist/fs-utils.d.ts",
   "bin": {
     "add-surrounding-in-file": "dist/bin/add-surrounding-in-file.js",
+    "replace-in-file": "dist/bin/replace-in-file.js",
     "replace-in-file-with-file-content": "dist/bin/replace-in-file-with-file-content.js"
   },
   "dependencies": {
     "fs-extra": "^9.1.0"
   },
   "devDependencies": {
-    "@handy-common-utils/dev-dependencies": "^1.0.13",
+    "@handy-common-utils/dev-dependencies": "^1.0.22",
     "@types/fs-extra": "^9.0.11",
     "@types/tmp": "^0.2.0",
     "es-check": "^5.2.3",
