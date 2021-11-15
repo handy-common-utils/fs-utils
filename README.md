@@ -33,135 +33,68 @@ await addSurroundingInFile(README_MD_FILE, /<example>(.*?)<\/example>/gms, '<exa
 <!-- API start -->
 <a name="readmemd"></a>
 
-**[@handy-common-utils/fs-utils](#readmemd)**
-
-> Globals
+@handy-common-utils/fs-utils
 
 ## @handy-common-utils/fs-utils
 
-### Index
+### Table of contents
 
-#### Classes
+#### Modules
 
-* [FsUtils](#classesfsutilsmd)
-
-#### Variables
-
-* [addSurroundingInFile](#addsurroundinginfile)
-* [afterString](#afterstring)
-* [beforeString](#beforestring)
-* [changeFileContent](#changefilecontent)
-* [contentFilePath](#contentfilepath)
-* [escapeRegExpReplacement](#escaperegexpreplacement)
-* [filePath](#filepath)
-* [matchPattern](#matchpattern)
-* [replaceInFile](#replaceinfile)
-* [replaceInFileWithFileContent](#replaceinfilewithfilecontent)
-
-### Variables
-
-#### addSurroundingInFile
-
-• `Const` **addSurroundingInFile**: [addSurroundingInFile](#addsurroundinginfile) = FsUtils.addSurroundingInFile
-
-___
-
-#### afterString
-
-•  **afterString**: string
-
-___
-
-#### beforeString
-
-•  **beforeString**: string
-
-___
-
-#### changeFileContent
-
-• `Const` **changeFileContent**: [changeFileContent](#changefilecontent) = FsUtils.changeFileContent
-
-___
-
-#### contentFilePath
-
-•  **contentFilePath**: string
-
-___
-
-#### escapeRegExpReplacement
-
-• `Const` **escapeRegExpReplacement**: [escapeRegExpReplacement](#escaperegexpreplacement) = FsUtils.escapeRegExpReplacement
-
-___
-
-#### filePath
-
-•  **filePath**: string
-
-___
-
-#### matchPattern
-
-•  **matchPattern**: string
-
-___
-
-#### replaceInFile
-
-• `Const` **replaceInFile**: [replaceInFile](#replaceinfile) = FsUtils.replaceInFile
-
-___
-
-#### replaceInFileWithFileContent
-
-• `Const` **replaceInFileWithFileContent**: [replaceInFileWithFileContent](#replaceinfilewithfilecontent) = FsUtils.replaceInFileWithFileContent
+- [fs-utils](#modulesfs_utilsmd)
 
 ## Classes
 
 
-<a name="classesfsutilsmd"></a>
+<a name="classesfs_utilsfsutilsmd"></a>
 
-**[@handy-common-utils/fs-utils](#readmemd)**
-
-> [Globals](#readmemd) / FsUtils
+[@handy-common-utils/fs-utils](#readmemd) / [fs-utils](#modulesfs_utilsmd) / FsUtils
 
 ### Class: FsUtils
 
-#### Hierarchy
+[fs-utils](#modulesfs_utilsmd).FsUtils
 
-* **FsUtils**
+#### Table of contents
 
-#### Index
+##### Constructors
+
+- [constructor](#constructor)
 
 ##### Methods
 
-* [addSurroundingInFile](#addsurroundinginfile)
-* [changeFileContent](#changefilecontent)
-* [escapeRegExpReplacement](#escaperegexpreplacement)
-* [replaceInFile](#replaceinfile)
-* [replaceInFileWithFileContent](#replaceinfilewithfilecontent)
+- [addSurroundingInFile](#addsurroundinginfile)
+- [changeFileContent](#changefilecontent)
+- [escapeRegExpReplacement](#escaperegexpreplacement)
+- [replaceInFile](#replaceinfile)
+- [replaceInFileWithFileContent](#replaceinfilewithfilecontent)
+
+#### Constructors
+
+##### constructor
+
+• **new FsUtils**()
 
 #### Methods
 
 ##### addSurroundingInFile
 
-▸ `Static` **addSurroundingInFile**(`filePath`: string, `matchPattern`: RegExp, `addBefore`: string, `addAfter`: string, `fileEncoding?`: Parameters\<Buffer[\"toString\"]>[\"0\"]): Promise\<void>
+▸ `Static` **addSurroundingInFile**(`filePath`, `matchPattern`, `addBefore`, `addAfter`, `fileEncoding?`): `Promise`<`void`\>
 
 Add surrounding content to the matching sections in the text file.
 
-###### Parameters:
+###### Parameters
 
-Name | Type | Default value | Description |
------- | ------ | ------ | ------ |
-`filePath` | string | - | path to the file |
-`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be processed.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
-`addBefore` | string | - | the string to be added before the capturing group, no need to escape anything |
-`addAfter` | string | - | the string to be added before the capturing group, no need to escape anything |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` | path to the file |
+| `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be processed.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
+| `addBefore` | `string` | `undefined` | the string to be added before the capturing group, no need to escape anything |
+| `addAfter` | `string` | `undefined` | the string to be added before the capturing group, no need to escape anything |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` | encoding of the file |
 
-**Returns:** Promise\<void>
+###### Returns
+
+`Promise`<`void`\>
 
 Promise of void
 
@@ -169,21 +102,23 @@ ___
 
 ##### changeFileContent
 
-▸ `Static` **changeFileContent**(`filePath`: string, `transformContent`: (originalContent: string, filePath: string) => string \| PromiseLike\<string>, `fileEncoding?`: Parameters\<Buffer[\"toString\"]>[\"0\"]): Promise\<void>
+▸ `Static` **changeFileContent**(`filePath`, `transformContent`, `fileEncoding?`): `Promise`<`void`\>
 
 Change the text file content.
 This function loads the full content of the file into memory as string, so that it is not suitable for huge (for example, > 500MB) files.
 If the new content and original content are the same, the file won't be touched.
 
-###### Parameters:
+###### Parameters
 
-Name | Type | Default value | Description |
------- | ------ | ------ | ------ |
-`filePath` | string | - | path to the file |
-`transformContent` | (originalContent: string, filePath: string) => string \| PromiseLike\<string> | - | function for getting the new file content |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` | path to the file |
+| `transformContent` | (`originalContent`: `string`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` | function for getting the new file content |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` | encoding of the file |
 
-**Returns:** Promise\<void>
+###### Returns
+
+`Promise`<`void`\>
 
 Promise of void
 
@@ -191,18 +126,20 @@ ___
 
 ##### escapeRegExpReplacement
 
-▸ `Static` **escapeRegExpReplacement**(`input`: string): string
+▸ `Static` **escapeRegExpReplacement**(`input`): `string`
 
 Escape the '
  sign in the string for using the string as the second argument to String.replace(...)
 
-###### Parameters:
+###### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`input` | string | the original string |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `input` | `string` | the original string |
 
-**Returns:** string
+###### Returns
+
+`string`
 
 a new string with all '
  in the original string being replaced by '$'
@@ -211,20 +148,22 @@ ___
 
 ##### replaceInFile
 
-▸ `Static` **replaceInFile**(`filePath`: string, `matchPattern`: RegExp, `replacementOrBuilder`: string \| (matchPattern: RegExp, filePath: string) => string \| PromiseLike\<string>, `fileEncoding?`: Parameters\<Buffer[\"toString\"]>[\"0\"]): Promise\<void>
+▸ `Static` **replaceInFile**(`filePath`, `matchPattern`, `replacementOrBuilder`, `fileEncoding?`): `Promise`<`void`\>
 
 Replace the matching sections in the text file.
 
-###### Parameters:
+###### Parameters
 
-Name | Type | Default value | Description |
------- | ------ | ------ | ------ |
-`filePath` | string | - | path to the file |
-`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
-`replacementOrBuilder` | string \| (matchPattern: RegExp, filePath: string) => string \| PromiseLike\<string> | - | The replacement string or a function for building the replacement string.                              Please note that you can use special replacement patterns but also you need to take care of the escaping.                              For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the file |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` | path to the file |
+| `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
+| `replacementOrBuilder` | `string` \| (`matchPattern`: `RegExp`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` | The replacement string or a function for building the replacement string.                              Please note that you can use special replacement patterns but also you need to take care of the escaping.                              For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` | encoding of the file |
 
-**Returns:** Promise\<void>
+###### Returns
+
+`Promise`<`void`\>
 
 Promise of void
 
@@ -232,20 +171,137 @@ ___
 
 ##### replaceInFileWithFileContent
 
-▸ `Static` **replaceInFileWithFileContent**(`filePath`: string, `matchPattern`: RegExp, `contentFilePath`: string, `fileEncoding?`: Parameters\<Buffer[\"toString\"]>[\"0\"]): Promise\<void>
+▸ `Static` **replaceInFileWithFileContent**(`filePath`, `matchPattern`, `contentFilePath`, `fileEncoding?`): `Promise`<`void`\>
 
 Replace the matching sections in the text file with content from another file.
 
-###### Parameters:
+###### Parameters
 
-Name | Type | Default value | Description |
------- | ------ | ------ | ------ |
-`filePath` | string | - | path of the file |
-`matchPattern` | RegExp | - | RegExp for deciding which section of the file would be replaced.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
-`contentFilePath` | string | - | path of the file for getting the replacement content |
-`fileEncoding` | Parameters\<Buffer[\"toString\"]>[\"0\"] | "utf-8" | encoding of the files |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` | path of the file |
+| `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be replaced.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
+| `contentFilePath` | `string` | `undefined` | path of the file for getting the replacement content |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` | encoding of the files |
 
-**Returns:** Promise\<void>
+###### Returns
+
+`Promise`<`void`\>
 
 Promise of void
+
+## Modules
+
+
+<a name="modulesfs_utilsmd"></a>
+
+[@handy-common-utils/fs-utils](#readmemd) / fs-utils
+
+### Module: fs-utils
+
+#### Table of contents
+
+##### Classes
+
+- [FsUtils](#classesfs_utilsfsutilsmd)
+
+##### Functions
+
+- [addSurroundingInFile](#addsurroundinginfile)
+- [changeFileContent](#changefilecontent)
+- [escapeRegExpReplacement](#escaperegexpreplacement)
+- [replaceInFile](#replaceinfile)
+- [replaceInFileWithFileContent](#replaceinfilewithfilecontent)
+
+#### Functions
+
+##### addSurroundingInFile
+
+▸ `Const` **addSurroundingInFile**(`filePath`, `matchPattern`, `addBefore`, `addAfter`, `fileEncoding?`): `Promise`<`void`\>
+
+###### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` |
+| `matchPattern` | `RegExp` | `undefined` |
+| `addBefore` | `string` | `undefined` |
+| `addAfter` | `string` | `undefined` |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
+
+###### Returns
+
+`Promise`<`void`\>
+
+___
+
+##### changeFileContent
+
+▸ `Const` **changeFileContent**(`filePath`, `transformContent`, `fileEncoding?`): `Promise`<`void`\>
+
+###### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` |
+| `transformContent` | (`originalContent`: `string`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
+
+###### Returns
+
+`Promise`<`void`\>
+
+___
+
+##### escapeRegExpReplacement
+
+▸ `Const` **escapeRegExpReplacement**(`input`): `string`
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input` | `string` |
+
+###### Returns
+
+`string`
+
+___
+
+##### replaceInFile
+
+▸ `Const` **replaceInFile**(`filePath`, `matchPattern`, `replacementOrBuilder`, `fileEncoding?`): `Promise`<`void`\>
+
+###### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` |
+| `matchPattern` | `RegExp` | `undefined` |
+| `replacementOrBuilder` | `string` \| (`matchPattern`: `RegExp`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
+
+###### Returns
+
+`Promise`<`void`\>
+
+___
+
+##### replaceInFileWithFileContent
+
+▸ `Const` **replaceInFileWithFileContent**(`filePath`, `matchPattern`, `contentFilePath`, `fileEncoding?`): `Promise`<`void`\>
+
+###### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `filePath` | `string` | `undefined` |
+| `matchPattern` | `RegExp` | `undefined` |
+| `contentFilePath` | `string` | `undefined` |
+| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
+
+###### Returns
+
+`Promise`<`void`\>
 <!-- API end -->
