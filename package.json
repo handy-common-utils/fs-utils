@@ -20,11 +20,11 @@
     "replace-in-file-with-file-content": "dist/bin/replace-in-file-with-file-content.js"
   },
   "dependencies": {
-    "fs-extra": "^9.1.0"
+    "fs-extra": "^8.1.0"
   },
   "devDependencies": {
     "@handy-common-utils/dev-dependencies": "^1.0.26",
-    "@types/fs-extra": "^9.0.11",
+    "@types/fs-extra": "^8.1.2",
     "@types/tmp": "^0.2.0",
     "tmp": "^0.2.1"
   },
