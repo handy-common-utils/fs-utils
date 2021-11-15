@@ -2,6 +2,11 @@
 
 File system operations related utilities based on fs-extra
 
+[![Version](https://img.shields.io/npm/v/@handy-common-utils/fs-utils.svg)](https://npmjs.org/package/@handy-common-utils/fs-utils)
+[![Downloads/week](https://img.shields.io/npm/dw/@handy-common-utils/fs-utils.svg)](https://npmjs.org/package/@handy-common-utils/fs-utils)
+[![CI](https://github.com/handy-common-utils/fs-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/handy-common-utils/fs-utils/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/handy-common-utils/fs-utils/branch/master/graph/badge.svg?token=W08QCZS9H1)](https://codecov.io/gh/handy-common-utils/fs-utils)
+
 ## How to use
 
 First add it as a dependency:
