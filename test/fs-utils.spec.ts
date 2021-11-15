@@ -57,7 +57,7 @@ describe('fs-utils', () => {
   it('should addSurrounding(...) does the job when there are matches', async () => {
     const originalFile = await initializeOriginalFile();
 
-    await FsUtils.addSurroundingInFile(originalFile.name, /<start>([\s\S]*?)<end>/gm, '<start><body>', '</body><end>');
+    await FsUtils.addSurroundingInFile(originalFile.name, /<start>([\S\s]*?)<end>/gm, '<start><body>', '</body><end>');
     expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace(/<start>/g, '<start><body>').replace(/<end>/g, '</body><end>'));
   });
 });
