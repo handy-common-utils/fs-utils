@@ -23,7 +23,7 @@
     "fs-extra": "^8.1.0"
   },
   "devDependencies": {
-    "@handy-common-utils/dev-dependencies": "^1.0.30",
+    "@handy-common-utils/dev-dependencies": "^1.1.7",
     "@types/fs-extra": "^8.1.2",
     "@types/tmp": "^0.2.0",
     "tmp": "^0.2.1"
@@ -45,5 +45,9 @@
     "utils"
   ],
   "author": "James Hu",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "volta": {
+    "node": "16.17.1",
+    "npm": "8.19.2"
+  }
 }
