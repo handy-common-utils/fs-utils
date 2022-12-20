@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/text-encoding-identifier-case */
 /**
  * ## Re-exports
  *
@@ -40,6 +41,7 @@ export abstract class FsUtils {
    * @returns Promise of void
    */
   static async changeFileContent(filePath: string, transformContent: (originalContent: string, filePath: string) => string | PromiseLike<string>, fileEncoding: Parameters<Buffer['toString']>['0'] = 'utf-8'): Promise<void> {
+    // eslint-disable-next-line unicorn/no-await-expression-member
     const originalContent = (await fs.readFile(filePath)).toString(fileEncoding);
     const newContent = await Promise.resolve(transformContent(originalContent, filePath));
     if (originalContent !== newContent) {
