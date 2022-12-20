@@ -60,4 +60,33 @@ describe('fs-utils', () => {
     await FsUtils.addSurroundingInFile(originalFile.name, /<start>([\S\s]*?)<end>/gm, '<start><body>', '</body><end>');
     expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace(/<start>/g, '<start><body>').replace(/<end>/g, '</body><end>'));
   });
+  it('should replaceInFile(...) does the job when there is no match', async () => {
+    const originalFile = await initializeOriginalFile();
+
+    await FsUtils.replaceInFile(originalFile.name, /no such content/g, '[replaced]');
+    expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent);
+  });
+  it('should replaceInFile(...) does the job when there are matches', async () => {
+    const originalFile = await initializeOriginalFile();
+
+    await FsUtils.replaceInFile(originalFile.name, /<replace me>/g, '[replaced]');
+    expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace(/<replace me>/g, '[replaced]'));
+  });
+  it('should replaceInFiles(...) succeed when there is no file specified', async () => {
+    await FsUtils.replaceInFiles(/<replace me>/g, '[replaced]');
+  });
+  it('should replaceInFiles(...) succeed when there is only one file specified', async () => {
+    const originalFile = await initializeOriginalFile();
+
+    await FsUtils.replaceInFiles(/<replace me>/g, '[replaced]', originalFile.name);
+    expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace(/<replace me>/g, '[replaced]'));
+  });
+  it('should replaceInFiles(...) succeed when there are two files specified', async () => {
+    const originalFile = await initializeOriginalFile();
+    const contentFile = await initializeContentFile();
+
+    await FsUtils.replaceInFiles(/ is /g, '[replaced]', originalFile.name, contentFile.name);
+    expect(fs.readFileSync(originalFile.name).toString()).to.eq(originalFileContent.replace(/ is /g, '[replaced]'));
+    expect(fs.readFileSync(contentFile.name).toString()).to.eq(contentFileContent.replace(/ is /g, '[replaced]'));
+  });
 });

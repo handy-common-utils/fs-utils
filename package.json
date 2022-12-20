@@ -17,6 +17,7 @@
   "bin": {
     "add-surrounding-in-file": "dist/bin/add-surrounding-in-file.js",
     "replace-in-file": "dist/bin/replace-in-file.js",
+    "replace-in-files": "dist/bin/replace-in-files.js",
     "replace-in-file-with-file-content": "dist/bin/replace-in-file-with-file-content.js"
   },
   "dependencies": {

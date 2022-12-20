@@ -33,6 +33,13 @@ import { addSurroundingInFile } from 'fs-utils';
 await addSurroundingInFile(README_MD_FILE, /<example>(.*?)<\/example>/gms, '<example><b>', '</b></example>');
 ```
 
+There are also several commands you can use directly from your shell/build scripts:
+
+- replace-in-file
+- replace-in-files
+- replace-in-file-with-file-content
+- add-surrounding-in-file
+
 # API
 
 <!-- API start -->
