@@ -35,10 +35,10 @@ await addSurroundingInFile(README_MD_FILE, /<example>(.*?)<\/example>/gms, '<exa
 
 There are also several commands you can use directly from your shell/build scripts:
 
-- replace-in-file
-- replace-in-files
-- replace-in-file-with-file-content
-- add-surrounding-in-file
+- **replace-in-file** `filePath` `matchPattern` `replacement`
+- **replace-in-files** `matchPattern` `replacement` `file1` `file2` `file3` ...
+- **replace-in-file-with-file-content** `filePath` `matchPattern` `contentFilePath`
+- **add-surrounding-in-file** `filePath` `matchPattern` `beforeString` `afterString`
 
 # API
 
