@@ -45,40 +45,46 @@ There are also several commands you can use directly from your shell/build scrip
 <!-- API start -->
 <a name="readmemd"></a>
 
-@handy-common-utils/fs-utils
+## Module: fs-utils
 
-## @handy-common-utils/fs-utils
+### Re-exports
 
-### Table of contents
+#### Functions
 
-#### Modules
+- [escapeRegExpReplacement = FsUtils.escapeRegExpReplacement](#escapeRegExpReplacement)
+- [changeFileContent = FsUtils.changeFileContent](#changeFileContent)
+- [replaceInFile = FsUtils.replaceInFile](#replaceInFile)
+- [replaceInFilesWithEncoding = FsUtils.replaceInFilesWithEncoding](#replaceInFilesWithEncoding)
+- [replaceInFiles = FsUtils.replaceInFiles](#replaceInFiles)
+- [addSurroundingInFile = FsUtils.addSurroundingInFile](#addSurroundingInFile)
+- [replaceInFileWithFileContent = FsUtils.replaceInFileWithFileContent](#replaceInFileWithFileContent)
 
-- [fs-utils](#modulesfs_utilsmd)
+### Exports
+
+### Classes
+
+- [FsUtils](#classesfs_utilsfsutilsmd)
+
+### Type Aliases
+
+#### FileEncoding
+
+Ƭ **FileEncoding**: `Parameters`<`Buffer`[``"toString"``]\>[``"0"``]
+
+___
+
+#### ReplacementOrBuilder
+
+Ƭ **ReplacementOrBuilder**: `string` \| (`matchPattern`: `RegExp`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\>
 
 ## Classes
 
 
 <a name="classesfs_utilsfsutilsmd"></a>
 
-[@handy-common-utils/fs-utils](#readmemd) / [fs-utils](#modulesfs_utilsmd) / FsUtils
-
 ### Class: FsUtils
 
-[fs-utils](#modulesfs_utilsmd).FsUtils
-
-#### Table of contents
-
-##### Constructors
-
-- [constructor](#constructor)
-
-##### Methods
-
-- [addSurroundingInFile](#addsurroundinginfile)
-- [changeFileContent](#changefilecontent)
-- [escapeRegExpReplacement](#escaperegexpreplacement)
-- [replaceInFile](#replaceinfile)
-- [replaceInFileWithFileContent](#replaceinfilewithfilecontent)
+[fs-utils](#readmemd).FsUtils
 
 #### Constructors
 
@@ -99,7 +105,7 @@ Add surrounding content to the matching sections in the text file.
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `filePath` | `string` | `undefined` | path to the file |
-| `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be processed.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
+| `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be processed. You must have a capturing group in the pattern. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 | `addBefore` | `string` | `undefined` | the string to be added before the capturing group, no need to escape anything |
 | `addAfter` | `string` | `undefined` | the string to be added before the capturing group, no need to escape anything |
 | `fileEncoding` | `undefined` \| `string` | `'utf-8'` | encoding of the file |
@@ -170,7 +176,7 @@ Replace the matching sections in the text file.
 | :------ | :------ | :------ | :------ |
 | `filePath` | `string` | `undefined` | path to the file |
 | `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
-| `replacementOrBuilder` | `string` \| (`matchPattern`: `RegExp`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` | The replacement string or a function for building the replacement string.                              Please note that you can use special replacement patterns but also you need to take care of the escaping.                              For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
+| `replacementOrBuilder` | [`ReplacementOrBuilder`](#replacementorbuilder) | `undefined` | The replacement string or a function for building the replacement string. Please note that you can use special replacement patterns but also you need to take care of the escaping. For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
 | `fileEncoding` | `undefined` \| `string` | `'utf-8'` | encoding of the file |
 
 ###### Returns
@@ -192,7 +198,7 @@ Replace the matching sections in the text file with content from another file.
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `filePath` | `string` | `undefined` | path of the file |
-| `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be replaced.                    You must have a capturing group in the pattern.                    You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
+| `matchPattern` | `RegExp` | `undefined` | RegExp for deciding which section of the file would be replaced. You must have a capturing group in the pattern. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
 | `contentFilePath` | `string` | `undefined` | path of the file for getting the replacement content |
 | `fileEncoding` | `undefined` \| `string` | `'utf-8'` | encoding of the files |
 
@@ -202,118 +208,50 @@ Replace the matching sections in the text file with content from another file.
 
 Promise of void
 
-## Modules
+___
 
+##### replaceInFiles
 
-<a name="modulesfs_utilsmd"></a>
+▸ `Static` **replaceInFiles**(`matchPattern`, `replacementOrBuilder`, `...filePaths`): `Promise`<`void`\>
 
-[@handy-common-utils/fs-utils](#readmemd) / fs-utils
-
-### Module: fs-utils
-
-#### Table of contents
-
-##### Classes
-
-- [FsUtils](#classesfs_utilsfsutilsmd)
-
-##### Functions
-
-- [addSurroundingInFile](#addsurroundinginfile)
-- [changeFileContent](#changefilecontent)
-- [escapeRegExpReplacement](#escaperegexpreplacement)
-- [replaceInFile](#replaceinfile)
-- [replaceInFileWithFileContent](#replaceinfilewithfilecontent)
-
-#### Functions
-
-##### addSurroundingInFile
-
-▸ `Const` **addSurroundingInFile**(`filePath`, `matchPattern`, `addBefore`, `addAfter`, `fileEncoding?`): `Promise`<`void`\>
+Replace the matching sections in multiple utf-8 text files.
+The replacing opertions on those files happen in parallel.
 
 ###### Parameters
 
-| Name | Type | Default value |
+| Name | Type | Description |
 | :------ | :------ | :------ |
-| `filePath` | `string` | `undefined` |
-| `matchPattern` | `RegExp` | `undefined` |
-| `addBefore` | `string` | `undefined` |
-| `addAfter` | `string` | `undefined` |
-| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
+| `matchPattern` | `RegExp` | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
+| `replacementOrBuilder` | [`ReplacementOrBuilder`](#replacementorbuilder) | The replacement string or a function for building the replacement string. Please note that you can use special replacement patterns but also you need to take care of the escaping. For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
+| `...filePaths` | `string`[] | patsh to the files |
 
 ###### Returns
 
 `Promise`<`void`\>
 
+Promise of void
+
 ___
 
-##### changeFileContent
+##### replaceInFilesWithEncoding
 
-▸ `Const` **changeFileContent**(`filePath`, `transformContent`, `fileEncoding?`): `Promise`<`void`\>
+▸ `Static` **replaceInFilesWithEncoding**(`matchPattern`, `replacementOrBuilder`, `fileEncoding`, `...filePaths`): `Promise`<`void`\>
+
+Replace the matching sections in multiple text files.
+The replacing opertions on those files happen in parallel.
 
 ###### Parameters
 
-| Name | Type | Default value |
+| Name | Type | Description |
 | :------ | :------ | :------ |
-| `filePath` | `string` | `undefined` |
-| `transformContent` | (`originalContent`: `string`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` |
-| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
+| `matchPattern` | `RegExp` | RegExp for deciding which section of the file would be replaced. You may want to use these tricks: `m` flag, `g` flag, `s` flag, `[\s\S]*`, `.*?` |
+| `replacementOrBuilder` | [`ReplacementOrBuilder`](#replacementorbuilder) | The replacement string or a function for building the replacement string. Please note that you can use special replacement patterns but also you need to take care of the escaping. For details of special replacement patterns see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace |
+| `fileEncoding` | `undefined` \| `string` | encoding of the file, in most of the cases 'utf-8' should be used |
+| `...filePaths` | `string`[] | patsh to the files |
 
 ###### Returns
 
 `Promise`<`void`\>
 
-___
-
-##### escapeRegExpReplacement
-
-▸ `Const` **escapeRegExpReplacement**(`input`): `string`
-
-###### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `input` | `string` |
-
-###### Returns
-
-`string`
-
-___
-
-##### replaceInFile
-
-▸ `Const` **replaceInFile**(`filePath`, `matchPattern`, `replacementOrBuilder`, `fileEncoding?`): `Promise`<`void`\>
-
-###### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `filePath` | `string` | `undefined` |
-| `matchPattern` | `RegExp` | `undefined` |
-| `replacementOrBuilder` | `string` \| (`matchPattern`: `RegExp`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` |
-| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
-
-###### Returns
-
-`Promise`<`void`\>
-
-___
-
-##### replaceInFileWithFileContent
-
-▸ `Const` **replaceInFileWithFileContent**(`filePath`, `matchPattern`, `contentFilePath`, `fileEncoding?`): `Promise`<`void`\>
-
-###### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `filePath` | `string` | `undefined` |
-| `matchPattern` | `RegExp` | `undefined` |
-| `contentFilePath` | `string` | `undefined` |
-| `fileEncoding` | `undefined` \| `string` | `'utf-8'` |
-
-###### Returns
-
-`Promise`<`void`\>
+Promise of void
 <!-- API end -->
