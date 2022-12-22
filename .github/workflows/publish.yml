@@ -1,0 +1,15 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+.*'
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: handy-common-utils/automation/actions/publish-npm@main
+      with:
+        node-version: volta
