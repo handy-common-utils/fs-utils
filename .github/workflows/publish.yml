@@ -12,5 +12,4 @@ jobs:
     steps:
     - uses: handy-common-utils/automation/github/actions/publish-npm@main
       with:
-        node-version: volta
         npm-publish-token: ${{ secrets.NPM_PUBLISH_TOKEN }}
