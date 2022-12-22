@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: handy-common-utils/automation/actions/publish-npm@main
+    - uses: handy-common-utils/automation/github/actions/publish-npm@main
       with:
         node-version: volta
