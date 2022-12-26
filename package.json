@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@handy-common-utils/dev-dependencies": "^1.1.11",
-    "@types/fs-extra": "^8.1.2",
+    "@types/fs-extra": "^9.0.13",
     "@types/tmp": "^0.2.0",
     "tmp": "^0.2.1"
   },
