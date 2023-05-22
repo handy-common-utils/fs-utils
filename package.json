@@ -1,6 +1,6 @@
 {
   "name": "@handy-common-utils/fs-utils",
-  "version": "1.0.20",
+  "version": "1.1.0",
   "description": "File system operations related utilities based on fs-extra",
   "scripts": {
     "pretest": "eslint . --ext .ts",
