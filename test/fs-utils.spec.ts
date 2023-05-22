@@ -1,5 +1,8 @@
+/* eslint-disable unicorn/prefer-node-protocol */
 import { expect } from 'chai';
-import * as fs from 'fs-extra';
+import * as fs from 'fs';
+import { promisify } from 'util';
+const fsWriteFile = promisify(fs.writeFile);
 import * as tmp from 'tmp';
 import { FsUtils } from '../src/fs-utils';
 
@@ -29,13 +32,13 @@ a small file.`;
 
 async function initializeOriginalFile(): Promise<tmp.FileResult> {
   const originalFile = tmp.fileSync();
-  await fs.writeFile(originalFile.name, originalFileContent);
+  await fsWriteFile(originalFile.name, originalFileContent);
   return originalFile;
 }
 
 async function initializeContentFile(): Promise<tmp.FileResult> {
   const contentFile = tmp.fileSync();
-  await fs.writeFile(contentFile.name, contentFileContent);
+  await fsWriteFile(contentFile.name, contentFileContent);
   return contentFile;
 }
 
