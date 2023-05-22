@@ -20,12 +20,8 @@
     "replace-in-files": "dist/bin/replace-in-files.js",
     "replace-in-file-with-file-content": "dist/bin/replace-in-file-with-file-content.js"
   },
-  "dependencies": {
-    "fs-extra": "^11.1.0"
-  },
   "devDependencies": {
     "@handy-common-utils/dev-dependencies-mocha": "^1.1.2",
-    "@types/fs-extra": "^8.1.2",
     "@types/tmp": "^0.2.0",
     "tmp": "^0.2.1"
   },

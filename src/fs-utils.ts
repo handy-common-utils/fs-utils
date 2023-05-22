@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-node-protocol */
 /* eslint-disable unicorn/text-encoding-identifier-case */
 /**
  * ## Re-exports
@@ -16,7 +17,10 @@
  *
  * @module
  */
-import * as fs from 'fs-extra';
+import * as fs from 'fs';
+import { promisify } from 'util';
+const fsReadFile = promisify(fs.readFile);
+const fsWriteFile = promisify(fs.writeFile);
 
 export type ReplacementOrBuilder = string | ((matchPattern: RegExp, filePath: string) => string | PromiseLike<string>)
 export type FileEncoding = Parameters<Buffer['toString']>['0'];
@@ -42,10 +46,10 @@ export abstract class FsUtils {
    */
   static async changeFileContent(filePath: string, transformContent: (originalContent: string, filePath: string) => string | PromiseLike<string>, fileEncoding: Parameters<Buffer['toString']>['0'] = 'utf-8'): Promise<void> {
     // eslint-disable-next-line unicorn/no-await-expression-member
-    const originalContent = (await fs.readFile(filePath)).toString(fileEncoding);
+    const originalContent = (await fsReadFile(filePath)).toString(fileEncoding);
     const newContent = await Promise.resolve(transformContent(originalContent, filePath));
     if (originalContent !== newContent) {
-      await fs.writeFile(filePath, newContent);
+      await fsWriteFile(filePath, newContent);
     }
   }
 
@@ -130,7 +134,7 @@ export abstract class FsUtils {
     await FsUtils.replaceInFile(
       filePath,
       matchPattern,
-      () => fs.readFile(contentFilePath)
+      () => fsReadFile(contentFilePath)
               .then(buffer => buffer.toString(fileEncoding))
               .then(content => FsUtils.escapeRegExpReplacement(content)),
       fileEncoding,
