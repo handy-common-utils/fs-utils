@@ -1,6 +1,6 @@
 # @handy-common-utils/fs-utils
 
-File system operations related utilities based on fs-extra
+File system operations related utilities without any 3rd party dependency.
 
 [![Version](https://img.shields.io/npm/v/@handy-common-utils/fs-utils.svg)](https://npmjs.org/package/@handy-common-utils/fs-utils)
 [![Downloads/week](https://img.shields.io/npm/dw/@handy-common-utils/fs-utils.svg)](https://npmjs.org/package/@handy-common-utils/fs-utils)
