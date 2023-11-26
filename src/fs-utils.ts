@@ -1,4 +1,5 @@
 /* eslint-disable unicorn/prefer-node-protocol */
+/* eslint-disable unicorn/prefer-string-replace-all */
 /* eslint-disable unicorn/text-encoding-identifier-case */
 /**
  * ## Re-exports
