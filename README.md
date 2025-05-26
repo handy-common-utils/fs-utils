@@ -69,13 +69,13 @@ There are also several commands you can use directly from your shell/build scrip
 
 #### FileEncoding
 
-Ƭ **FileEncoding**: `Parameters`<`Buffer`[``"toString"``]\>[``"0"``]
+Ƭ **FileEncoding**: `Parameters`\<`Buffer`[``"toString"``]\>[``"0"``]
 
 ___
 
 #### ReplacementOrBuilder
 
-Ƭ **ReplacementOrBuilder**: `string` \| (`matchPattern`: `RegExp`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\>
+Ƭ **ReplacementOrBuilder**: `string` \| (`matchPattern`: `RegExp`, `filePath`: `string`) => `string` \| `PromiseLike`\<`string`\>
 
 ## Classes
 
@@ -96,7 +96,7 @@ ___
 
 ##### addSurroundingInFile
 
-▸ `Static` **addSurroundingInFile**(`filePath`, `matchPattern`, `addBefore`, `addAfter`, `fileEncoding?`): `Promise`<`void`\>
+▸ `Static` **addSurroundingInFile**(`filePath`, `matchPattern`, `addBefore`, `addAfter`, `fileEncoding?`): `Promise`\<`void`\>
 
 Add surrounding content to the matching sections in the text file.
 
@@ -112,7 +112,7 @@ Add surrounding content to the matching sections in the text file.
 
 ###### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 Promise of void
 
@@ -120,7 +120,7 @@ ___
 
 ##### changeFileContent
 
-▸ `Static` **changeFileContent**(`filePath`, `transformContent`, `fileEncoding?`): `Promise`<`void`\>
+▸ `Static` **changeFileContent**(`filePath`, `transformContent`, `fileEncoding?`): `Promise`\<`void`\>
 
 Change the text file content.
 This function loads the full content of the file into memory as string, so that it is not suitable for huge (for example, > 500MB) files.
@@ -131,12 +131,12 @@ If the new content and original content are the same, the file won't be touched.
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `filePath` | `string` | `undefined` | path to the file |
-| `transformContent` | (`originalContent`: `string`, `filePath`: `string`) => `string` \| `PromiseLike`<`string`\> | `undefined` | function for getting the new file content |
+| `transformContent` | (`originalContent`: `string`, `filePath`: `string`) => `string` \| `PromiseLike`\<`string`\> | `undefined` | function for getting the new file content |
 | `fileEncoding` | `undefined` \| `BufferEncoding` | `'utf-8'` | encoding of the file |
 
 ###### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 Promise of void
 
@@ -166,7 +166,7 @@ ___
 
 ##### replaceInFile
 
-▸ `Static` **replaceInFile**(`filePath`, `matchPattern`, `replacementOrBuilder`, `fileEncoding?`): `Promise`<`void`\>
+▸ `Static` **replaceInFile**(`filePath`, `matchPattern`, `replacementOrBuilder`, `fileEncoding?`): `Promise`\<`void`\>
 
 Replace the matching sections in the text file.
 
@@ -181,7 +181,7 @@ Replace the matching sections in the text file.
 
 ###### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 Promise of void
 
@@ -189,7 +189,7 @@ ___
 
 ##### replaceInFileWithFileContent
 
-▸ `Static` **replaceInFileWithFileContent**(`filePath`, `matchPattern`, `contentFilePath`, `fileEncoding?`): `Promise`<`void`\>
+▸ `Static` **replaceInFileWithFileContent**(`filePath`, `matchPattern`, `contentFilePath`, `fileEncoding?`): `Promise`\<`void`\>
 
 Replace the matching sections in the text file with content from another file.
 
@@ -204,7 +204,7 @@ Replace the matching sections in the text file with content from another file.
 
 ###### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 Promise of void
 
@@ -212,7 +212,7 @@ ___
 
 ##### replaceInFiles
 
-▸ `Static` **replaceInFiles**(`matchPattern`, `replacementOrBuilder`, `...filePaths`): `Promise`<`void`\>
+▸ `Static` **replaceInFiles**(`matchPattern`, `replacementOrBuilder`, `...filePaths`): `Promise`\<`void`\>
 
 Replace the matching sections in multiple utf-8 text files.
 The replacing opertions on those files happen in parallel.
@@ -227,7 +227,7 @@ The replacing opertions on those files happen in parallel.
 
 ###### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 Promise of void
 
@@ -235,7 +235,7 @@ ___
 
 ##### replaceInFilesWithEncoding
 
-▸ `Static` **replaceInFilesWithEncoding**(`matchPattern`, `replacementOrBuilder`, `fileEncoding`, `...filePaths`): `Promise`<`void`\>
+▸ `Static` **replaceInFilesWithEncoding**(`matchPattern`, `replacementOrBuilder`, `fileEncoding`, `...filePaths`): `Promise`\<`void`\>
 
 Replace the matching sections in multiple text files.
 The replacing opertions on those files happen in parallel.
@@ -251,7 +251,7 @@ The replacing opertions on those files happen in parallel.
 
 ###### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 Promise of void
 <!-- API end -->
