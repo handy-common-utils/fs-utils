@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/@handy-common-utils/dev-utils/tsconfig.json",
+  "extends": "@tsconfig/node18/tsconfig.json",
   "include": [
     "src/**/*"
   ],
