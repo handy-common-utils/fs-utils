@@ -21,9 +21,9 @@
     "replace-in-file-with-file-content": "dist/bin/replace-in-file-with-file-content.js"
   },
   "devDependencies": {
-    "@handy-common-utils/dev-dependencies-mocha": "^1.5.4",
-    "@types/tmp": "^0.2.0",
-    "tmp": "^0.2.1"
+    "@handy-common-utils/dev-dependencies-mocha": "^1.7.0",
+    "@types/tmp": "^0.2.6",
+    "tmp": "^0.2.4"
   },
   "publishConfig": {
     "access": "public"
