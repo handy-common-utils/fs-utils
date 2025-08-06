@@ -14,3 +14,4 @@ jobs:
         uses: handy-common-utils/automation/github/actions/publish-npm@main
         with:
           npm-publish-token: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          node-version: .nvmrc
