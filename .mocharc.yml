@@ -1,0 +1,11 @@
+spec:
+  - 'test/**/*.spec.ts'
+  - 'test/**/*.spec.int.ts'
+  - 'test/**/*.test.ts'
+  - 'test/**/*.test.int.ts'
+exclude:
+  - '**/node_modules/**'
+require:
+  - source-map-support/register
+node-option:
+  - import=tsx

@@ -15,8 +15,7 @@
  * - [replaceInFileWithFileContent = FsUtils.replaceInFileWithFileContent](../classes/fs_utils.FsUtils.md#replaceInFileWithFileContent)
  *
  * ## Exports
- *
- * @module
+ * 
  */
 import * as fs from 'fs';
 import { promisify } from 'util';
