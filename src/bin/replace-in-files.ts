@@ -6,7 +6,9 @@
  */
 
 import { FsUtils } from '../fs-utils';
+import { parseArgs } from './parse-args';
 
-const [,, matchPattern, replacement, ...filePaths] = process.argv;
+const { flags, args } = parseArgs(process.argv);
+const [matchPattern, replacement, ...filePaths] = args;
 
-FsUtils.replaceInFiles(new RegExp(matchPattern), replacement, ...filePaths);
+FsUtils.replaceInFiles(new RegExp(matchPattern, flags), replacement, ...filePaths);

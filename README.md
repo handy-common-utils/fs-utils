@@ -35,10 +35,22 @@ await addSurroundingInFile(README_MD_FILE, /<example>(.*?)<\/example>/gms, '<exa
 
 There are also several commands you can use directly from your shell/build scripts:
 
-- **replace-in-file** `filePath` `matchPattern` `replacement`
-- **replace-in-files** `matchPattern` `replacement` `file1` `file2` `file3` ...
-- **replace-in-file-with-file-content** `filePath` `matchPattern` `contentFilePath`
-- **add-surrounding-in-file** `filePath` `matchPattern` `beforeString` `afterString`
+- **replace-in-file** `[--flags <regExpFlags>]` `filePath` `matchPattern` `replacement`
+- **replace-in-files** `[--flags <regExpFlags>]` `matchPattern` `replacement` `file1` `file2` `file3` ...
+- **replace-in-file-with-file-content** `[--flags <regExpFlags>]` `filePath` `matchPattern` `contentFilePath`
+- **add-surrounding-in-file** `[--flags <regExpFlags>]` `filePath` `matchPattern` `beforeString` `afterString`
+
+The optional `--flags` argument accepts any combination of [RegExp flags](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp#flags) (e.g. `g`, `gi`, `gm`).
+It can appear anywhere in the argument list.
+Without `--flags`, each command replaces only the first match (default `String.replace` behaviour).
+
+```sh
+# Replace all occurrences (g flag) using a capture group in the replacement ($1)
+replace-in-file --flags g index.html '<a href="([^"]*)">' '<a href="$1" target="_blank">'
+
+# Case-insensitive, global replace across multiple files
+replace-in-files --flags gi TODO DONE file1.txt file2.txt
+```
 
 # API
 

@@ -6,7 +6,9 @@
  */
 
 import { FsUtils } from '../fs-utils';
+import { parseArgs } from './parse-args';
 
-const [,, filePath, matchPattern, beforeString, afterString] = process.argv;
+const { flags, args } = parseArgs(process.argv);
+const [filePath, matchPattern, beforeString, afterString] = args;
 
-FsUtils.addSurroundingInFile(filePath, new RegExp(matchPattern), beforeString, afterString);
+FsUtils.addSurroundingInFile(filePath, new RegExp(matchPattern, flags), beforeString, afterString);
