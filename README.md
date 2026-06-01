@@ -7,6 +7,13 @@ File system operations related utilities without any 3rd party dependency.
 [![CI](https://github.com/handy-common-utils/fs-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/handy-common-utils/fs-utils/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/handy-common-utils/fs-utils/branch/master/graph/badge.svg?token=W08QCZS9H1)](https://codecov.io/gh/handy-common-utils/fs-utils)
 
+## Features
+
+- ⚡ **Zero Production Dependencies**: Lightweight, secure, and fast to install.
+- 📦 **Dual Module Support**: Works seamlessly in both CommonJS (`require`) and ES Modules (`import`) environments.
+- 🛠️ **Fully Typed**: Written in TypeScript with full type definitions out of the box.
+- 💻 **CLI Companions**: Execute search-and-replace actions directly from your terminal or build scripts without writing JavaScript code.
+
 ## How to use
 
 First add it as a dependency:
@@ -15,25 +22,36 @@ First add it as a dependency:
 npm install @handy-common-utils/fs-utils
 ```
 
-Then you can use it in the code:
+### Import in code
 
+You can use either ES Modules (ESM) or CommonJS (CJS) syntax.
+
+**ES Modules (ESM):**
 ```javascript
-import { FsUtils } from '@handy-common-utils/fs-utils';
+import { FsUtils, addSurroundingInFile } from '@handy-common-utils/fs-utils';
 
+// Using the FsUtils class:
 const [,, filePath, matchPattern, beforeString, afterString] = process.argv;
 await FsUtils.addSurroundingInFile(filePath, new RegExp(matchPattern), beforeString, afterString);
-```
 
-You can either import and use the [class](#classes) as shown above,
-or you can import individual [functions](#variables) directly like below:
-
-```javascript
-import { addSurroundingInFile } from 'fs-utils';
-
+// Or importing individual functions directly:
 await addSurroundingInFile(README_MD_FILE, /<example>(.*?)<\/example>/gms, '<example><b>', '</b></example>');
 ```
 
-There are also several commands you can use directly from your shell/build scripts:
+**CommonJS (CJS):**
+```javascript
+const { FsUtils, addSurroundingInFile } = require('@handy-common-utils/fs-utils');
+
+// Using the FsUtils class:
+FsUtils.addSurroundingInFile(filePath, /pattern/, 'before', 'after');
+
+// Or using individual functions directly:
+addSurroundingInFile(filePath, /pattern/, 'before', 'after');
+```
+
+### CLI Commands
+
+There are also several commands you can use directly from your shell or build scripts:
 
 - **replace-in-file** `[--flags <regExpFlags>]` `filePath` `matchPattern` `replacement`
 - **replace-in-files** `[--flags <regExpFlags>]` `matchPattern` `replacement` `file1` `file2` `file3` ...
@@ -44,13 +62,28 @@ The optional `--flags` argument accepts any combination of [RegExp flags](https:
 It can appear anywhere in the argument list.
 Without `--flags`, each command replaces only the first match (default `String.replace` behaviour).
 
-```sh
-# Replace all occurrences (g flag) using a capture group in the replacement ($1)
-replace-in-file --flags g index.html '<a href="([^"]*)">' '<a href="$1" target="_blank">'
+#### How to run CLI commands
 
-# Case-insensitive, global replace across multiple files
-replace-in-files --flags gi TODO DONE file1.txt file2.txt
-```
+1. **Via `npx` (No installation needed):**
+   ```sh
+   # Replace all occurrences (g flag) using a capture group in the replacement ($1)
+   npx @handy-common-utils/fs-utils replace-in-file --flags g index.html '<a href="([^"]*)">' '<a href="$1" target="_blank">'
+   ```
+
+2. **Via Local Scripts (`package.json`):**
+   If installed as a project devDependency, you can use the commands directly in your `package.json` scripts:
+   ```json
+   "scripts": {
+     "patch-links": "replace-in-files --flags gi TODO DONE file1.txt file2.txt"
+   }
+   ```
+
+3. **Via Global Installation:**
+   ```sh
+   npm install -g @handy-common-utils/fs-utils
+   replace-in-files --flags gi TODO DONE file1.txt file2.txt
+   ```
+
 
 # API
 

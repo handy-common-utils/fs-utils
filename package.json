@@ -1,7 +1,7 @@
 {
   "name": "@handy-common-utils/fs-utils",
   "version": "1.1.2",
-  "description": "File system operations related utilities based on fs-extra",
+  "description": "File system operations related utilities without any 3rd party dependency.",
   "scripts": {
     "pretest": "eslint . --ext .ts && es-check",
     "test": "c8 mocha",
