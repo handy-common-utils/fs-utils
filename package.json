@@ -5,7 +5,7 @@
   "scripts": {
     "pretest": "eslint . --ext .ts && es-check",
     "test": "c8 mocha",
-    "prepare": "shx rm -rf dist && tsc && shx chmod +x dist/bin/*.js && es-check",
+    "prepare": "husky && shx rm -rf dist && tsc && shx chmod +x dist/bin/*.js && es-check",
     "preversion": "generate-api-docs-and-update-readme && git add README.md"
   },
   "files": [
@@ -25,6 +25,9 @@
     "@types/node": "^25.9.1",
     "@types/tmp": "^0.2.6",
     "tmp": "^0.2.7"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "publishConfig": {
     "access": "public"
